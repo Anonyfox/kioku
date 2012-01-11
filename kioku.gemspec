@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
     "README.rdoc",
     "Rakefile",
     "VERSION",
+    "kioku.gemspec",
     "lib/kioku.rb",
     "test/bindata.bz2",
     "test/helper.rb",
