@@ -1,6 +1,16 @@
 = kioku
 
-Description goes here.
+A handy little Ruby Gem for a very leightweight NoSQL data storage solution. In fact, it is simply a key-value-store in a single file. The name of this gem is equivalent to the japanese word for storage ;)
+
+== Advantages of kioku: 
+* extremly lightweight, no need for configurations
+* blazing fast for small to mid-size datasets
+* pure Ruby implementation, no native extensions neccessary
+* let you store in your data in the human-readable YAML format
+
+== When NOT to use kioku
+* big amount of data
+* write-intensive applications
 
 == Contributing to kioku
  
