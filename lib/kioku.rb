@@ -1,7 +1,7 @@
 #encoding: utf-8
 
 require 'yaml'
-require 'profile'
+#require 'profile'
 
 class Kioku
 
@@ -42,23 +42,31 @@ class Kioku
 		data
 	end
 
+	# remove all datasets from the database
 	def clear
 		@data_base = {}
 		update_database
 	end
 
+	# deletes the current database file and locks the database-object
+	# so it can't be used anymore
 	def destroy
 		File.delete @filepath
 		self.freeze
 	end
 
-	def exists? key
-		@data_base.has_key? key
+	# returns all keys which are actually in the database
+	def all
+		@data_base.keys.dup || []
 	end
 
-	def keys
-		@data_base.keys
-		#puts @data_base.values
+	# returns all keys in the database that matches the given pattern-string
+	def search pattern
+		results = all.map {|key|
+			key if key.to_s =~ /#{pattern}/i
+		}
+		results.delete nil
+		results
 	end
 
 private
@@ -68,10 +76,6 @@ private
 			f = File.open @filepath, 'r'
 			@data_base = YAML.load_file @filepath
 			f.close
-
-			#f = File.open @filepath, 'rb'
-			#@data_base = Marshal.load f.read
-			#f.close
 		else
 			f = File.new @filepath, 'wb'
 			f.close
@@ -82,10 +86,22 @@ private
 		f = File.new @filepath, 'w'
 		f << @data_base.to_yaml
 		f.close
+	end
 
-		#f = File.new @filepath, 'wb'
-		#f << Marshal.dump(@data_base)
-		#f.close
+	#############################################
+	### other serialization formats
+	#############################################
+
+	def init_database_marshal
+		f = File.open @filepath, 'rb'
+		@data_base = Marshal.load f.read
+		f.close
+	end
+
+	def update_database_marshal
+		f = File.new @filepath, 'wb'
+		f << Marshal.dump(@data_base)
+		f.close
 	end
 
 end

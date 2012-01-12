@@ -17,8 +17,9 @@ Jeweler::Tasks.new do |gem|
   gem.name = "kioku"
   gem.homepage = "http://github.com/Anonyfox/kioku"
   gem.license = "MIT"
-  gem.summary = %Q{A leightweight key-value store solution.}
-  gem.description = %Q{See the Homepage for more Informations!}
+  gem.summary = %Q{A leightweight key-value store solution written in pure Ruby.}
+  gem.description = %Q{A leightweight key-value store solution written in pure Ruby.
+    See the Homepage for more Informations!}
   gem.email = "Fox56@gmx.de"
   gem.authors = ["Maximilian Stroh"]
   # dependencies defined in Gemfile

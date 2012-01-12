@@ -1,6 +1,8 @@
 ---
+höhö: süß
 obj:
 - 1
 - 2
 - 4
-höhö: süß
+bin: !binary |-
+  QlpoOTFBWSZTWZQkfA4AAACBAAMkIAAhmmgzTRM8XckU4UJCUJHwOA==
