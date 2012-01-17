@@ -56,4 +56,10 @@ class TestKiokuBasics < Test::Unit::TestCase
   	assert_equal( @k.search("bin"), ["bin"] )
   	assert_equal( @k.search("höhö"), ["höhö"])
   end
+
+  def test_marshalling
+    #@k = Kioku.new "sample.msh", "marshal"
+    #@k["entry"] = "Blablabla"
+    #assert_equal( "Blablabla", @k["entry"])
+  end
 end

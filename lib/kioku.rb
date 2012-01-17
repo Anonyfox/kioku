@@ -7,8 +7,9 @@ class Kioku
 
 	# opens up a database file and loads the content, 
 	# or creates one first if it doesn't exist yet
-	def initialize filepath
+	def initialize filepath, serialization_type='yaml'
 		@filepath = filepath
+		@serialization_type = serialization_type
 		@data_base = {}
 		init_database
 	end
@@ -52,6 +53,8 @@ class Kioku
 	# so it can't be used anymore
 	def destroy
 		File.delete @filepath
+		@data_base = nil
+		@data_base.freeze
 		self.freeze
 	end
 
@@ -72,6 +75,20 @@ class Kioku
 private
 
 	def init_database
+		#self.send("init_database_#{@serialization_type}")
+		init_database_yaml
+	end
+
+	def update_database
+		#self.send("update_database_#{@serialization_type}")
+		update_database_yaml
+	end
+
+	#############################################
+	### other serialization formats
+	#############################################
+
+	def init_database_yaml
 		if File.exists? @filepath
 			f = File.open @filepath, 'r'
 			@data_base = YAML.load_file @filepath
@@ -82,15 +99,11 @@ private
 		end
 	end
 
-	def update_database
+	def update_database_yaml
 		f = File.new @filepath, 'w'
 		f << @data_base.to_yaml
 		f.close
 	end
-
-	#############################################
-	### other serialization formats
-	#############################################
 
 	def init_database_marshal
 		f = File.open @filepath, 'rb'
