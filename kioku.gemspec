@@ -4,14 +4,15 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = "kioku"
-  s.version = "0.0.2"
+  s.name = %q{kioku}
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Maximilian Stroh"]
-  s.date = "2012-01-12"
-  s.description = "A leightweight key-value store solution written in pure Ruby.\n    See the Homepage for more Informations!"
-  s.email = "Fox56@gmx.de"
+  s.authors = [%q{Maximilian Stroh}]
+  s.date = %q{2012-01-17}
+  s.description = %q{A leightweight key-value store solution written in pure Ruby.
+    See the Homepage for more Informations!}
+  s.email = %q{Fox56@gmx.de}
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.rdoc"
@@ -28,15 +29,15 @@ Gem::Specification.new do |s|
     "lib/kioku.rb",
     "test/bindata.bz2",
     "test/helper.rb",
+    "test/sample.msh",
     "test/sample.yml",
-    "test/test_gui.rb",
     "test/test_kioku_basics.rb"
   ]
-  s.homepage = "http://github.com/Anonyfox/kioku"
-  s.licenses = ["MIT"]
-  s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.10"
-  s.summary = "A leightweight key-value store solution written in pure Ruby."
+  s.homepage = %q{http://github.com/Anonyfox/kioku}
+  s.licenses = [%q{MIT}]
+  s.require_paths = [%q{lib}]
+  s.rubygems_version = %q{1.8.6}
+  s.summary = %q{A leightweight key-value store solution written in pure Ruby.}
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
