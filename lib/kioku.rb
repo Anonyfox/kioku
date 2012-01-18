@@ -91,12 +91,12 @@ private
 		if File.exists? @filepath
 			f = File.open @filepath, 'r'
 			@data_base = YAML.load_file @filepath
-			@data_base ||= {}
 			f.close
 		else
 			f = File.new @filepath, 'wb'
 			f.close
 		end
+		@data_base ||= {}
 	end
 
 	def update_database_yaml
