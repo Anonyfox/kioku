@@ -10,7 +10,6 @@ class Kioku
 	def initialize filepath, serialization_type='yaml'
 		@filepath = filepath
 		@serialization_type = serialization_type
-		@data_base = {}
 		init_database
 	end
 
@@ -92,6 +91,7 @@ private
 		if File.exists? @filepath
 			f = File.open @filepath, 'r'
 			@data_base = YAML.load_file @filepath
+			@data_base ||= {}
 			f.close
 		else
 			f = File.new @filepath, 'wb'
