@@ -71,6 +71,11 @@ class Kioku
 		results
 	end
 
+	# ask the database if exactly this key is already used in it.
+	def include? key
+		@data_base.has_key? key
+	end
+
 private
 
 	def init_database
